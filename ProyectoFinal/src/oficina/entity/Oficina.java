@@ -5,13 +5,15 @@ public class Oficina {
 	private double dimension;
 	private int nroPlanta;
 	private int nroAlquiler;
+	private String estado;
 	
-	public Oficina(int nroOficina, double dimension, int nroPlanta, int nroAlquiler) {
+	public Oficina(int nroOficina, double dimension, int nroPlanta, int nroAlquiler, String estado) {
 		
 		this.nroOficina = nroOficina;
 		this.dimension = dimension;
 		this.nroPlanta = nroPlanta;
 		this.nroAlquiler = nroAlquiler;
+		this.estado = estado;
 	}
 	public int getNroOficina() {
 		return nroOficina;
@@ -37,11 +39,16 @@ public class Oficina {
 	public void setNroAlquiler(int nroAlquiler) {
 		this.nroAlquiler = nroAlquiler;
 	}
-	
-	
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	@Override
 	public String toString() {
 		return "Oficina [nroOficina=" + nroOficina + ", dimension=" + dimension + ", nroPlanta=" + nroPlanta
-				+ ", nroAlquiler=" + nroAlquiler + "]";
+				+ ", nroAlquiler=" + nroAlquiler + ", estado=" + estado + "]";
 	}
+	
 }
