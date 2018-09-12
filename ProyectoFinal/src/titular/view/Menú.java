@@ -3,6 +3,7 @@ package titular.view;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import titular.entity.NoExisteOficina;
 import titular.entity.NoExisteTitular;
 import titular.entity.Titular;
 import view.InputTypes;
@@ -28,7 +29,7 @@ public class Menú {
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 4) {
+			if (opcion >= 0 && opcion <= 5) {
 				return opcion;
 			}
 		}
@@ -73,6 +74,8 @@ public class Menú {
 					titularesView.listOficinas();
 				} catch (NoExisteTitular e) {
 					System.out.println("No existe titular!");
+				} catch (NoExisteOficina e) {
+					System.out.println("No existen oficinas!");
 				}
 				break;
 			}
