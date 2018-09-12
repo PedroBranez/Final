@@ -35,7 +35,7 @@ public class TitularesIO {
 			conexión.getSentencia().setString(2, titular.getNombre());
 			conexión.getSentencia().setInt(3, titular.getTeléfono());
 			conexión.getSentencia().setString(4, titular.getDirección());
-			conexión.getSentencia().setInt(5, titular.getNIT());
+			conexión.getSentencia().setString(5, titular.getNIT());
 			conexión.modificacion();
 		} catch (SQLException e) {
 			System.out.println(e.getSQLState());
@@ -64,16 +64,16 @@ public class TitularesIO {
 	 * @throws SQLException *
 	 ****************************/
 
-	/*public void update() throws NoExisteCategoría, SQLException {
+	public void update() throws NoExisteTitular, SQLException {
 		ResultSet resultSet;
 		Titular titular;
 		int CI;
 		String nombre;
 		int teléfono;
 		String dirección;
-		int NIT;
+		String NIT;
 		int nroTitular = InputTypes.readInt("Número de Titular: ", scanner);
-		String sql = "select * from titular where código = ?";
+		String sql = "select * from titular where nroTitular = ?";
 		conexión.consulta(sql);
 		conexión.getSentencia().setInt(1, nroTitular);
 		resultSet = conexión.resultado();
@@ -82,25 +82,26 @@ public class TitularesIO {
 			nombre = resultSet.getString("nombre");
 			teléfono = resultSet.getInt("teléfono");
 			dirección = resultSet.getString("dirección");
-			NIT = resultSet.getInt("NIT");
+			NIT = resultSet.getString("NIT");
 			titular = new Titular(nroTitular, CI, nombre, teléfono, dirección, NIT);
 		} else {
-			throw new NoExisteCategoría();
+			throw new NoExisteTitular();
 		}
 
 		System.out.println(titular);
 		Menú.menúModificar(scanner, titular);
 
-		sql = "update categoría set nombre = ?, descripción = ? where código = ?";
+		sql = "update titular set CI = ?, nombre = ?, teléfono = ?, dirección = ?, NIT = ? where nroTitular = ?";
 
 		conexión.consulta(sql);
 		conexión.getSentencia().setInt(1, titular.getCI());
 		conexión.getSentencia().setString(2, titular.getNombre());
 		conexión.getSentencia().setInt(3, titular.getTeléfono());
 		conexión.getSentencia().setString(4, titular.getDirección());
-		conexión.getSentencia().setInt(5, titular.getNIT());
+		conexión.getSentencia().setString(5, titular.getNIT());
+		conexión.getSentencia().setInt(6, titular.getNroTitular());
 		conexión.modificacion();
-	}*/
+	}
 
 	/****************************
 	 * Listar categorías
@@ -109,32 +110,32 @@ public class TitularesIO {
 
 	public void list() throws SQLException {
 		Titular titular;
-		String sql = "select * from categoría ";
+		String sql = "select * from titular ";
 		conexión.consulta(sql);
 		ResultSet resultSet = conexión.resultado();
 		while (resultSet.next()) {
 			titular = new Titular(resultSet.getInt("nroTitular"), resultSet.getInt("CI"),
 					resultSet.getString("nombre"), resultSet.getInt("teléfono"),
-					resultSet.getString("dirección"), resultSet.getInt("NIT"));
+					resultSet.getString("dirección"), resultSet.getString("NIT"));
 			System.out.println(titular);
 		}
 	}
 
 	/****************************
-	 * Listar categorías .
+	 * Listar Oficinas .
 	 * 
-	 * @throws NoExisteCategoría
+	 * @throws NoExisteTitular
 	 * @throws SQLException *
 	 ****************************/
 /*
-	public void listProducts() throws NoExisteCategoría, SQLException {
+	public void listProducts() throws NoExisteTitular, SQLException {
 		ResultSet resultSet;
 		Titular titular;
 		int CI;
 		String nombre;
 		int teléfono;
 		String dirección;
-		int NIT;
+		String NIT;
 		int nroTitular = InputTypes.readInt("Número de Titular: ", scanner);
 		String sql = "select * from titular where nroTitular = ?";
 		conexión.consulta(sql);

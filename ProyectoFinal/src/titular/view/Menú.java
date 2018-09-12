@@ -21,14 +21,14 @@ public class Menú {
 			System.out.println("1. Ingresar Titular");
 			System.out.println("2. Listar Titulares ");
 			System.out.println("3. Eliminar Titular ");
-			//System.out.println("4. Modificar Titular ");
+			System.out.println("4. Modificar Titular ");
 			//System.out.println("5. Oficinas por Titular ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 3) {
+			if (opcion >= 0 && opcion <= 4) {
 				return opcion;
 			}
 		}
@@ -61,14 +61,14 @@ public class Menú {
 				}
 				break;
 
-			/*case 4:
+			case 4:
 				try {
 					titularesView.update();
-				} catch (NoExisteCategoría e) {
+				} catch (NoExisteTitular e) {
 					System.out.println("No existe categoría!");
 				}
 				break;
-
+/*
 			case 5:
 				try {
 					titularesView.listProducts();
@@ -94,14 +94,17 @@ public class Menú {
 		while (true) {
 			System.out.println("Ingrese una opcion: ");
 			System.out.println("------------------- ");
-			System.out.println("1. Modificar nombre");
-			System.out.println("2. Modificar descripción ");
+			System.out.println("1. Modificar CI");
+			System.out.println("2. Modificar Nombre ");
+			System.out.println("3. Modificar Teléfono ");
+			System.out.println("4. Modificar Dirección ");
+			System.out.println("5. Modificar NIT ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 2) {
+			if (opcion >= 0 && opcion <= 5) {
 				return opcion;
 			}
 		}
@@ -111,7 +114,7 @@ public class Menú {
 	 * Opciones del modificar *
 	 ****************************/
 
-	/*public static void menúModificar(Scanner scanner, Titular titular) {
+	public static void menúModificar(Scanner scanner, Titular titular) {
 		boolean salir = false;
 
 		while (!salir) {
@@ -120,12 +123,21 @@ public class Menú {
 				salir = true;
 				break;
 			case 1:
-				titular.setNombre(InputTypes.readString("Ingrese el nuevo nombre: ", scanner));
+				titular.setCI(InputTypes.readInt("Ingrese el nuevo CI: ", scanner));
 				break;
 			case 2:
-				titular.setDescripción(InputTypes.readString("Ingrese la nueva descripcíon: ", scanner));
+				titular.setNombre(InputTypes.readString("Ingrese el nuevo nombre: ", scanner));
+				break;
+			case 3:
+				titular.setTeléfono(InputTypes.readInt("Ingrese el nuevo Teléfono: ", scanner));
+				break;
+			case 4:
+				titular.setDirección(InputTypes.readString("Ingrese la nueva direccíon: ", scanner));
+				break;
+			case 5:
+				titular.setNIT(InputTypes.readString("Ingrese el nuevo NIT: ", scanner));
 				break;
 			}
 		}
-	}*/
+	}
 }

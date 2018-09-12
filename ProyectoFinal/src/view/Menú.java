@@ -40,7 +40,7 @@ public class Menú {
 	public static void menú(Scanner scanner) throws ClassNotFoundException, SQLException {
 		boolean salir = false;
 		
-		Conexión conexión = new Conexión("root","","Tienda");
+		Conexión conexión = new Conexión("root","","Edificio");
 		TitularesIO titularesIO = new TitularesIO(conexión, scanner);
 		//ProductosIO productosIO = new ProductosIO(conexión, scanner);
 		
