@@ -1,19 +1,31 @@
 package inquilino.entity;
 
 public class Inquilino { 
+	private int nroInquilino;
 	private int CI;
 	private String nombre;
 	private int teléfono;
 	private String dirección;
 	private int NIT;
-	public Inquilino(int cI, String nombre, int teléfono, String dirección, int nIT) {
+	
+	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, int nIT) {
 		super();
+		this.nroInquilino = nroInquilino;
 		CI = cI;
 		this.nombre = nombre;
 		this.teléfono = teléfono;
 		this.dirección = dirección;
 		NIT = nIT;
 	}
+	
+	public int getNroInquilino() {
+		return nroInquilino;
+	}
+
+	public void setNroInquilino(int nroInquilino) {
+		this.nroInquilino = nroInquilino;
+	}
+
 	public int getCI() {
 		return CI;
 	}
@@ -44,10 +56,11 @@ public class Inquilino {
 	public void setNIT(int nIT) {
 		NIT = nIT;
 	}
+
 	@Override
 	public String toString() {
-		return "Inquilino [CI=" + CI + ", nombre=" + nombre + ", teléfono=" + teléfono + ", dirección=" + dirección
-				+ ", NIT=" + NIT + "]";
+		return "Inquilino [nroInquilino=" + nroInquilino + ", CI=" + CI + ", nombre=" + nombre + ", teléfono="
+				+ teléfono + ", dirección=" + dirección + ", NIT=" + NIT + "]";
 	}
 
 }

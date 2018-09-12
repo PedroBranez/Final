@@ -2,24 +2,33 @@ package oficina.entity;
 
 public class Oficina {
 	private int nroOficina;
+	private int nroTiular;
 	private double dimension;
 	private int nroPlanta;
-	private int nroAlquiler;
 	private String estado;
 	
-	public Oficina(int nroOficina, double dimension, int nroPlanta, int nroAlquiler, String estado) {
-		
+	
+	
+	public Oficina(int nroOficina, int nroTiular, double dimension, int nroPlanta, String estado) {
+		super();
 		this.nroOficina = nroOficina;
+		this.nroTiular = nroTiular;
 		this.dimension = dimension;
 		this.nroPlanta = nroPlanta;
-		this.nroAlquiler = nroAlquiler;
 		this.estado = estado;
+		
 	}
 	public int getNroOficina() {
 		return nroOficina;
 	}
 	public void setNroOficina(int nroOficina) {
 		this.nroOficina = nroOficina;
+	}
+	public int getNroTiular() {
+		return nroTiular;
+	}
+	public void setNroTiular(int nroTiular) {
+		this.nroTiular = nroTiular;
 	}
 	public double getDimension() {
 		return dimension;
@@ -33,12 +42,6 @@ public class Oficina {
 	public void setNroPlanta(int nroPlanta) {
 		this.nroPlanta = nroPlanta;
 	}
-	public int getNroAlquiler() {
-		return nroAlquiler;
-	}
-	public void setNroAlquiler(int nroAlquiler) {
-		this.nroAlquiler = nroAlquiler;
-	}
 	public String getEstado() {
 		return estado;
 	}
@@ -47,8 +50,8 @@ public class Oficina {
 	}
 	@Override
 	public String toString() {
-		return "Oficina [nroOficina=" + nroOficina + ", dimension=" + dimension + ", nroPlanta=" + nroPlanta
-				+ ", nroAlquiler=" + nroAlquiler + ", estado=" + estado + "]";
+		return "Oficina [nroOficina=" + nroOficina + ", nroTiular=" + nroTiular + ", dimension=" + dimension
+				+ ", nroPlanta=" + nroPlanta + ", estado=" + estado + "]";
 	}
 	
 }
