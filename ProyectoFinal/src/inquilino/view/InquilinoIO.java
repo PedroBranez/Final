@@ -11,7 +11,7 @@ public class InquilinoIO {
 		String nombre = InputTypes.readString("Ingrese el nombre del inquilino", scanner);
 		int teléfono = InputTypes.readInt("Ingrese el número de teléfono del inquilino", scanner);
 		String direccion = InputTypes.readString("Ingrese la direccion del inquilino", scanner);
-		int NIT = InputTypes.readInt("Ingrese el número de NIT del inquilino", scanner);
+		String NIT = InputTypes.readString("Ingrese el número de NIT del inquilino", scanner);
 		
 		return new Inquilino(0, CI, nombre, teléfono, direccion, NIT);
 

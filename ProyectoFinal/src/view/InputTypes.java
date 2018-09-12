@@ -48,4 +48,5 @@ public class InputTypes {
 		cadena = scanner.nextLine();
 		return cadena;
 	}
+
 }

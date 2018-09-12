@@ -6,16 +6,16 @@ public class Inquilino {
 	private String nombre;
 	private int teléfono;
 	private String dirección;
-	private int NIT;
+	private String NIT;
 	
-	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, int nIT) {
+	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, String nIT) {
 		super();
 		this.nroInquilino = nroInquilino;
 		CI = cI;
 		this.nombre = nombre;
 		this.teléfono = teléfono;
 		this.dirección = dirección;
-		NIT = nIT;
+		this.NIT = nIT;
 	}
 	
 	public int getNroInquilino() {
@@ -50,10 +50,10 @@ public class Inquilino {
 	public void setDirección(String dirección) {
 		this.dirección = dirección;
 	}
-	public int getNIT() {
+	public String getNIT() {
 		return NIT;
 	}
-	public void setNIT(int nIT) {
+	public void setNIT(String nIT) {
 		NIT = nIT;
 	}
 
