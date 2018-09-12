@@ -8,7 +8,7 @@ public class Inquilino {
 	private String dirección;
 	private long NIT;
 	
-	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, log nIT) {
+	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, long nIT) {
 		super();
 		this.nroInquilino = nroInquilino;
 		CI = cI;
