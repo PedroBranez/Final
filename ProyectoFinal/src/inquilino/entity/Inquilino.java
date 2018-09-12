@@ -6,9 +6,9 @@ public class Inquilino {
 	private String nombre;
 	private int teléfono;
 	private String dirección;
-	private int NIT;
+	private long NIT;
 	
-	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, int nIT) {
+	public Inquilino(int nroInquilino, int cI, String nombre, int teléfono, String dirección, log nIT) {
 		super();
 		this.nroInquilino = nroInquilino;
 		CI = cI;
@@ -50,10 +50,10 @@ public class Inquilino {
 	public void setDirección(String dirección) {
 		this.dirección = dirección;
 	}
-	public int getNIT() {
+	public long getNIT() {
 		return NIT;
 	}
-	public void setNIT(int nIT) {
+	public void setNIT(long nIT) {
 		NIT = nIT;
 	}
 
