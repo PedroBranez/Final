@@ -3,13 +3,14 @@ package alquiler.entity;
 public class Alquiler {
 
 	private int nroAlquiler;
+	private int nroInquilino;
 	private String fecha;
-	private int CIInquilino;
-	public Alquiler(int nroAlquiler, String fecha, int cIInquilino) {
+	
+	public Alquiler(int nroAlquiler, int cIInquilino, String fecha ) {
 		super();
 		this.nroAlquiler = nroAlquiler;
+		nroInquilino = cIInquilino;
 		this.fecha = fecha;
-		CIInquilino = cIInquilino;
 	}
 	public int getNroAlquiler() {
 		return nroAlquiler;
@@ -17,21 +18,22 @@ public class Alquiler {
 	public void setNroAlquiler(int nroAlquiler) {
 		this.nroAlquiler = nroAlquiler;
 	}
+	public int getNroInquilino() {
+		return nroInquilino;
+	}
+	public void setNroInquilino(int cIInquilino) {
+		nroInquilino = cIInquilino;
+	}
 	public String getFecha() {
 		return fecha;
 	}
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	public int getCIInquilino() {
-		return CIInquilino;
-	}
-	public void setCIInquilino(int cIInquilino) {
-		CIInquilino = cIInquilino;
-	}
 	@Override
 	public String toString() {
-		return "Alquiler [nroAlquiler=" + nroAlquiler + ", fecha=" + fecha + ", CIInquilino=" + CIInquilino + "]";
-	}	
+		return "Alquiler [nroAlquiler=" + nroAlquiler + ", nroInquilino=" + nroInquilino + ", fecha=" + fecha + "]";
+	}
+	
 	
 }

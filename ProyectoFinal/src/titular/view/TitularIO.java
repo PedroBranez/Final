@@ -13,7 +13,7 @@ public class TitularIO {
 		String direccion = InputTypes.readString("Ingrese la direccion del titular", scanner);
 		int NIT = InputTypes.readInt("Ingrese el número de NIT del titular", scanner);
 		
-		return new Titular(CI, nombre, teléfono, direccion, NIT);
+		return new Titular(0 , CI, nombre, teléfono, direccion, NIT);
 
 	}
 
