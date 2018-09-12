@@ -3,7 +3,6 @@ package inquilino.view;
 import java.util.Scanner;
 
 import inquilino.entity.Inquilino;
-import titular.entity.Titular;
 import view.InputTypes;
 
 public class InquilinoIO {
