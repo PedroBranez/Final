@@ -1,10 +1,22 @@
 package view;
 
+import java.sql.SQLException;
+import java.util.Scanner;
+
 public class Pantalla {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
 
+		try {
+			view.Menú.menú(scanner);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		scanner.close();
 	}
 
 }
