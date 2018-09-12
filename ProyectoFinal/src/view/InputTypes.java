@@ -48,21 +48,5 @@ public class InputTypes {
 		cadena = scanner.nextLine();
 		return cadena;
 	}
-	public static long readLong(String msg, Scanner scanner) {
-		long valor = 0;
 
-		while (true) {
-			try {
-				System.out.print(msg);
-				System.out.print(" ");
-				valor = scanner.nextLong();
-				scanner.nextLong();
-				break;
-			} catch (java.util.InputMismatchException e) {
-				System.out.println("Debe ingresar solo números ");
-				scanner.nextLine();
-			}
-		}
-		return valor;
-	}
 }
