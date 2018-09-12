@@ -22,7 +22,7 @@ public class Menú {
 			System.out.println("2. Listar Titulares ");
 			System.out.println("3. Eliminar Titular ");
 			System.out.println("4. Modificar Titular ");
-			//System.out.println("5. Oficinas por Titular ");
+			System.out.println("5. Oficinas por Titular ");
 			System.out.println("0. Salir");
 			System.out.println();
 
@@ -57,7 +57,7 @@ public class Menú {
 				try {
 					titularesView.delete();
 				} catch (SQLException e) {
-					System.out.println("No existe categoría!");
+					System.out.println("No existe titular!");
 				}
 				break;
 
@@ -65,17 +65,16 @@ public class Menú {
 				try {
 					titularesView.update();
 				} catch (NoExisteTitular e) {
-					System.out.println("No existe categoría!");
+					System.out.println("No existe titular!");
 				}
 				break;
-/*
 			case 5:
 				try {
-					titularesView.listProducts();
-				} catch (NoExisteCategoría e) {
-					System.out.println("No existe categoría!");
+					titularesView.listOficinas();
+				} catch (NoExisteTitular e) {
+					System.out.println("No existe titular!");
 				}
-				break;*/
+				break;
 			}
 		}
 	}

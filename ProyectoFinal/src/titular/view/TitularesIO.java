@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import control.Conexión;
+import oficina.entity.Oficina;
 import titular.entity.NoExisteTitular;
 import titular.entity.Titular;
 import view.InputTypes;
@@ -127,8 +128,8 @@ public class TitularesIO {
 	 * @throws NoExisteTitular
 	 * @throws SQLException *
 	 ****************************/
-/*
-	public void listProducts() throws NoExisteTitular, SQLException {
+
+	public void listOficinas() throws NoExisteTitular, SQLException {
 		ResultSet resultSet;
 		Titular titular;
 		int CI;
@@ -146,32 +147,34 @@ public class TitularesIO {
 			nombre = resultSet.getString("nombre");
 			teléfono = resultSet.getInt("teléfono");
 			dirección = resultSet.getString("dirección");
-			NIT = resultSet.getInt("NIT");
+			NIT = resultSet.getString("NIT");
 			titular = new Titular(nroTitular, CI, nombre, teléfono, dirección, NIT);
 		} else {
-			throw new NoExisteCategoría();
+			throw new NoExisteTitular();
 		}
 		System.out.println(titular);
 
-		Producto producto;
-		Double precio;
-		int codProducto;
+		Oficina oficina;
+		int nroOficina;
+		Double dimension;
+		int nroPlanta;
+		String estado;
 
-		sql = "select * from producto where códigoCategoría = ?";
+		sql = "select * from oficina where nroTitular = ?";
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, codCategoría);
+		conexión.getSentencia().setInt(1, nroTitular);
 		resultSet = conexión.resultado();
 		if (resultSet.next()) {
-			codProducto = resultSet.getInt("código");
-			nombre = resultSet.getString("nombre");
-			descripción = resultSet.getString("descripción");
-			precio = resultSet.getDouble("precio");
-			producto = new Producto(codProducto, nombre, precio, descripción, codCategoría);
-			System.out.println(producto);
+			nroOficina = resultSet.getInt("nroOficina");
+			dimension = resultSet.getDouble("dimension");
+			nroPlanta = resultSet.getInt("nroPlanta");
+			estado = resultSet.getString("estado");
+			oficina = new Oficina(nroOficina, nroTitular, dimension, nroPlanta, estado);
+			System.out.println(oficina);
 		} else {
-			throw new NoExisteCategoría();
+			throw new NoExisteTitular();
 		}
 
 	}
-*/
+
 }
