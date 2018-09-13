@@ -3,17 +3,19 @@ package oficina.entity;
 public class Oficina {
 	private int nroOficina;
 	private int nroTitular;
-	private double dimension;
+	private String nombre;
+	private double dimensión;
 	private int nroPlanta;
 	private String estado;
 	
 	
 	
-	public Oficina(int nroOficina, int nroTitular, double dimension, int nroPlanta, String estado) {
+	public Oficina(int nroOficina, int nroTitular, String nombre, double dimensión, int nroPlanta, String estado) {
 		super();
 		this.nroOficina = nroOficina;
 		this.nroTitular = nroTitular;
-		this.dimension = dimension;
+		this.nombre = nombre;
+		this.dimensión = dimensión;
 		this.nroPlanta = nroPlanta;
 		this.estado = estado;
 		
@@ -30,11 +32,17 @@ public class Oficina {
 	public void setNroTitular(int nroTiular) {
 		this.nroTitular = nroTiular;
 	}
-	public double getDimension() {
-		return dimension;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setDimension(double dimension) {
-		this.dimension = dimension;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public double getDimensión() {
+		return dimensión;
+	}
+	public void setDimensión(double dimension) {
+		this.dimensión = dimension;
 	}
 	public int getNroPlanta() {
 		return nroPlanta;
@@ -50,8 +58,8 @@ public class Oficina {
 	}
 	@Override
 	public String toString() {
-		return "Oficina [nroOficina=" + nroOficina + ", nroTitular=" + nroTitular + ", dimension=" + dimension
-				+ ", nroPlanta=" + nroPlanta + ", estado=" + estado + "]";
+		return "Oficina [nroOficina=" + nroOficina + ", nroTitular=" + nroTitular + ", nombre=" + nombre
+				+ ", dimensión=" + dimensión + ", nroPlanta=" + nroPlanta + ", estado=" + estado + "]";
 	}
 	
 }

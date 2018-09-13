@@ -71,10 +71,8 @@ public class Menú {
 				try {
 					oficinasView.listOficinasDisponibles();
 				} catch (NoExisteOficina e) {
-					System.out.println("No existe Oficina!");
-				} /*catch (NoExisteOficina e) {
-					System.out.println("No existen oficinas!");
-				}*/
+					System.out.println("No existen Oficinas!");
+				}
 				break;
 			}
 		}
@@ -95,15 +93,16 @@ public class Menú {
 			System.out.println("Ingrese una opcion: ");
 			System.out.println("------------------- ");
 			System.out.println("1. Modificar numero de Titular");
-			System.out.println("2. Modificar dimension ");
-			System.out.println("3. Modificar numero de Planta ");
-			System.out.println("4. Modificar Estado ");
+			System.out.println("2. Modificar nombre");
+			System.out.println("3. Modificar dimension ");
+			System.out.println("4. Modificar numero de Planta ");
+			System.out.println("5. Modificar Estado ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 4) {
+			if (opcion >= 0 && opcion <= 5) {
 				return opcion;
 			}
 		}
@@ -125,12 +124,15 @@ public class Menú {
 				oficina.setNroTitular(InputTypes.readInt("Ingrese el nuevo nroTitulat: ", scanner));
 				break;
 			case 2:
-				oficina.setDimension(InputTypes.readInt("Ingrese la nueva dimension: ", scanner));
+				oficina.setNombre(InputTypes.readString("Ingrese el nuevo nombre: ", scanner));
 				break;
 			case 3:
-				oficina.setNroPlanta(InputTypes.readInt("Ingrese el nuevo nroPlanta: ", scanner));
+				oficina.setDimensión(InputTypes.readInt("Ingrese la nueva dimensión: ", scanner));
 				break;
 			case 4:
+				oficina.setNroPlanta(InputTypes.readInt("Ingrese el nuevo nroPlanta: ", scanner));
+				break;
+			case 5:
 				oficina.setEstado(InputTypes.readString("Ingrese el nuevo estado: ", scanner));
 				break;
 			

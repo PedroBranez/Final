@@ -54,7 +54,7 @@ public class TitularesIO {
 
 	public void delete() throws SQLException {
 		int nroTitular = InputTypes.readInt("Número de titular: ", scanner);
-		String sql = "delete " + "from titular " + "where código = ?";
+		String sql = "delete " + "from titular " + "where nroTitular = ?";
 		conexión.consulta(sql);
 		conexión.getSentencia().setInt(1, nroTitular);
 		conexión.modificacion();
@@ -106,7 +106,7 @@ public class TitularesIO {
 	}
 
 	/****************************
-	 * Listar categorías
+	 * Listar titulares
 	 * 
 	 ****************************/
 
@@ -157,25 +157,26 @@ public class TitularesIO {
 
 		Oficina oficina;
 		int nroOficina;
-		Double dimension;
+		String nombreO;
+		Double dimensión;
 		int nroPlanta;
 		String estado;
 
-		sql = "select * from oficina where nroTitular = ?";
-		conexión.consulta(sql);
+		String sql1 = "select * from oficina where nroTitular = ?";
+		conexión.consulta(sql1);
 		conexión.getSentencia().setInt(1, nroTitular);
 		resultSet = conexión.resultado();
-		if (resultSet.next()) {
+		while (resultSet.next()) {
 			nroOficina = resultSet.getInt("nroOficina");
-			dimension = resultSet.getDouble("dimension");
+			nombreO = resultSet.getString("nombre");
+			dimensión = resultSet.getDouble("dimensión");
 			nroPlanta = resultSet.getInt("nroPlanta");
 			estado = resultSet.getString("estado");
-			oficina = new Oficina(nroOficina, nroTitular, dimension, nroPlanta, estado);
+			oficina = new Oficina(nroOficina, nroTitular, nombreO, dimensión, nroPlanta, estado);
 			System.out.println(oficina);
-		} else {
-			throw new NoExisteOficina();
-		}
-
+		} //else {
+			//throw new NoExisteOficina();
+		//}
 	}
 
 }

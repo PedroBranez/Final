@@ -14,12 +14,13 @@ public class OficinaIO {
 				
 		int nroOficina = InputTypes.readInt("Ingrese el número de Oficina", scanner);
 		int nroTitular = InputTypes.readInt("Número Titular: ", scanner);
+		String nombre = InputTypes.readString("Ingresar nombre: ", scanner);
 		double dimensión = InputTypes.readDouble("Dimensión: ", scanner);
 		int nroPlanta = InputTypes.readInt("Número de Planta: ", scanner);
-		String estado = InputTypes.readString("Ingresar estado", scanner);
+		String estado = InputTypes.readString("Ingresar estado: ", scanner);
 		
 		
-		return new Oficina(nroOficina, nroTitular, dimensión, nroPlanta, estado);
+		return new Oficina(nroOficina, nroTitular, nombre, dimensión, nroPlanta, estado);
 
 	}
 }

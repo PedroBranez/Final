@@ -7,7 +7,6 @@ import control.Conexión;
 import oficina.view.OficinasIO;
 import titular.view.TitularesIO;
 
-
 public class Menú {
 	/****************************
 	 * Encabezado del menú *
@@ -33,18 +32,19 @@ public class Menú {
 	}
 
 	/****************************
-	 * Opciones del menú 
-	 * @throws SQLException 
+	 * Opciones del menú
+	 * 
+	 * @throws SQLException
 	 * @throws ClassNotFoundException *
 	 ****************************/
 
 	public static void menú(Scanner scanner) throws ClassNotFoundException, SQLException {
 		boolean salir = false;
-		
-		Conexión conexión = new Conexión("root","","Edificio");
+
+		Conexión conexión = new Conexión("root", "", "Edificio");
 		TitularesIO titularesIO = new TitularesIO(conexión, scanner);
 		OficinasIO oficinasIO = new OficinasIO(conexión, scanner);
-		
+
 		while (!salir) {
 			switch (encabezado(scanner)) {
 			case 0:
@@ -58,9 +58,13 @@ public class Menú {
 				}
 				break;
 			case 2:
-				oficina.view.Menú.menú(scanner, oficinasIO);
+				try {
+					oficina.view.Menú.menú(scanner, oficinasIO);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 				break;
-		
+
 			}
 		}
 		conexión.close();
