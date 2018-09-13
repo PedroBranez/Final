@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import control.Conexión;
+import oficina.view.OficinasIO;
 import titular.view.TitularesIO;
 
 
@@ -19,13 +20,13 @@ public class Menú {
 			System.out.println("Ingrese una opcion: ");
 			System.out.println("------------------- ");
 			System.out.println("1. Titular");
-			//System.out.println("2. Oficina ");
+			System.out.println("2. Oficina ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 1) {
+			if (opcion >= 0 && opcion <= 2) {
 				return opcion;
 			}
 		}
@@ -42,7 +43,7 @@ public class Menú {
 		
 		Conexión conexión = new Conexión("root","","Edificio");
 		TitularesIO titularesIO = new TitularesIO(conexión, scanner);
-		//ProductosIO productosIO = new ProductosIO(conexión, scanner);
+		OficinasIO oficinasIO = new OficinasIO(conexión, scanner);
 		
 		while (!salir) {
 			switch (encabezado(scanner)) {
@@ -56,9 +57,9 @@ public class Menú {
 					e.printStackTrace();
 				}
 				break;
-			/*case 2:
-				producto.view.Menú.menú(scanner, productosIO);
-				break;*/
+			case 2:
+				oficina.view.Menú.menú(scanner, oficinasIO);
+				break;
 		
 			}
 		}

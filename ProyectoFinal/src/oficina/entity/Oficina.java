@@ -2,17 +2,17 @@ package oficina.entity;
 
 public class Oficina {
 	private int nroOficina;
-	private int nroTiular;
+	private int nroTitular;
 	private double dimension;
 	private int nroPlanta;
 	private String estado;
 	
 	
 	
-	public Oficina(int nroOficina, int nroTiular, double dimension, int nroPlanta, String estado) {
+	public Oficina(int nroOficina, int nroTitular, double dimension, int nroPlanta, String estado) {
 		super();
 		this.nroOficina = nroOficina;
-		this.nroTiular = nroTiular;
+		this.nroTitular = nroTitular;
 		this.dimension = dimension;
 		this.nroPlanta = nroPlanta;
 		this.estado = estado;
@@ -24,11 +24,11 @@ public class Oficina {
 	public void setNroOficina(int nroOficina) {
 		this.nroOficina = nroOficina;
 	}
-	public int getNroTiular() {
-		return nroTiular;
+	public int getNroTitular() {
+		return nroTitular;
 	}
-	public void setNroTiular(int nroTiular) {
-		this.nroTiular = nroTiular;
+	public void setNroTitular(int nroTiular) {
+		this.nroTitular = nroTiular;
 	}
 	public double getDimension() {
 		return dimension;
@@ -50,7 +50,7 @@ public class Oficina {
 	}
 	@Override
 	public String toString() {
-		return "Oficina [nroOficina=" + nroOficina + ", nroTiular=" + nroTiular + ", dimension=" + dimension
+		return "Oficina [nroOficina=" + nroOficina + ", nroTitular=" + nroTitular + ", dimension=" + dimension
 				+ ", nroPlanta=" + nroPlanta + ", estado=" + estado + "]";
 	}
 	
