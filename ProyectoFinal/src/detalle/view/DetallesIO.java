@@ -39,6 +39,7 @@ public class DetallesIO {
 			conexión.modificacion();
 		} catch (SQLException e) {
 			System.out.println(e.getSQLState());
+			System.out.println("Algo falla");
 		}
 	}
 
