@@ -9,7 +9,6 @@ import alquiler.entity.NoExisteAlquiler;
 import control.Conexión;
 import inquilino.entity.Inquilino;
 import inquilino.entity.NoExisteInquilino;
-import oficina.entity.NoExisteOficina;
 import view.InputTypes;
 
 public class InquilinosIO {
