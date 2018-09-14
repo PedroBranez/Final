@@ -6,7 +6,6 @@ import java.util.Scanner;
 import alquiler.entity.NoExisteAlquiler;
 import inquilino.entity.Inquilino;
 import inquilino.entity.NoExisteInquilino;
-import oficina.entity.NoExisteOficina;
 import view.InputTypes;
 
 public class Menú {

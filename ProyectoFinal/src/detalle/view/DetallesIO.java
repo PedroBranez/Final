@@ -11,6 +11,7 @@ import view.InputTypes;
 
 
 public class DetallesIO {
+	
 	private Conexión conexión;
 	private Scanner scanner;
 
@@ -24,7 +25,7 @@ public class DetallesIO {
 	}
 
 	/****************************
-	 * Agregar Detalles *
+	 * Agregar Expensas *
 	 ****************************/
 
 	public void add() {
@@ -33,8 +34,8 @@ public class DetallesIO {
 		"values(?,?,?)";
 		try {
 			conexión.consulta(sql);
-			conexión.getSentencia().setInt(1, detalle.getNroAlquiler());
-			conexión.getSentencia().setInt(2, detalle.getNroOficina());
+			conexión.getSentencia().setDouble(1, detalle.getNroAlquiler());
+			conexión.getSentencia().setDouble(2, detalle.getNroOficina());
 			conexión.getSentencia().setDouble(3, detalle.getPrecioOficina());
 			conexión.modificacion();
 		} catch (SQLException e) {
@@ -44,16 +45,16 @@ public class DetallesIO {
 	}
 
 	/****************************
-	 * Eliminar Detalles
+	 * Eliminar expensas
 	 * 
 	 * @throws SQLException*
 	 ****************************/
 
 	public void delete() throws SQLException {
-		int nroDetalle = InputTypes.readInt("Número de Detalle: ", scanner);
-		String sql = "delete " + "from detalle " + "where nroDetalle = ?";
+		int nroAlquiler = InputTypes.readInt("Número de alquiler del detalle a eliminar: ", scanner);
+		String sql = "delete " + "from detalle " + "where nroAlquiler = ?";
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, nroDetalle);
+		conexión.getSentencia().setInt(1, nroAlquiler);
 		conexión.modificacion();
 	}
 
@@ -66,19 +67,19 @@ public class DetallesIO {
 	public void update() throws NoExisteDetalle, SQLException {
 		ResultSet resultSet;
 		Detalle detalle;
-		int nroAlquiler;
+		int nroDetalle;
 		int nroOficina;
 		double precioOficina;
 		
-		int nroDetalle = InputTypes.readInt("Número de Detalle: ", scanner);
-		String sql = "select * from detalle where nroDetalle = ?";
+		int nroAlquiler = InputTypes.readInt("Número de Alquiler del Detalle: ", scanner);
+		String sql = "select * from detalle where nroAlquiler = ?";
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, nroDetalle);
+		conexión.getSentencia().setInt(1, nroAlquiler);
 		resultSet = conexión.resultado();
 		if (resultSet.next()) {
-			nroAlquiler = resultSet.getInt("nroAlquiler");
+			nroDetalle = resultSet.getInt("nroDetalle");
 			nroOficina = resultSet.getInt("nroOficina");
-			precioOficina = resultSet.getDouble("precioOficina");
+			precioOficina = resultSet.getInt("precioOficina");
 			detalle = new Detalle(nroDetalle, nroAlquiler, nroOficina, precioOficina);
 		} else {
 			throw new NoExisteDetalle();
@@ -87,14 +88,13 @@ public class DetallesIO {
 		System.out.println(detalle);
 		Menú.menúModificar(scanner, detalle);
 
-		sql = "update detalle set nroAlquiler = ?, nroOficina = ?, precioOficina = ? "
-				+ "where nroDetalle = ?";
+		sql = "update detalle set nroOficina = ?, precioOficina = ? "
+				+ "where nroAlquiler = ?";
 
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, detalle.getNroAlquiler());
-		conexión.getSentencia().setInt(2, detalle.getNroOficina());
-		conexión.getSentencia().setDouble(3, detalle.getPrecioOficina());
-		conexión.getSentencia().setInt(4, detalle.getNroDetalle());
+		conexión.getSentencia().setInt(1, detalle.getNroOficina());
+		conexión.getSentencia().setDouble(2, detalle.getPrecioOficina());
+		conexión.getSentencia().setInt(3, detalle.getNroAlquiler());
 		conexión.modificacion();
 	}
 
@@ -103,6 +103,7 @@ public class DetallesIO {
 	 * 
 	 ****************************/
 
+	
 	public void list() throws SQLException {
 		Detalle detalle;
 		String sql = "select * from detalle ";

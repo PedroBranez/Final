@@ -8,6 +8,8 @@ import detalle.entity.NoExisteDetalle;
 import view.InputTypes;
 
 
+
+
 public class Menú {
 	/****************************
 	 * Encabezado del menú *
@@ -49,7 +51,7 @@ public class Menú {
 				break;
 			case 1:
 				detallesView.add();;
-				break;
+
 			case 2:
 				detallesView.list();
 				break;
@@ -86,6 +88,7 @@ public class Menú {
 		while (true) {
 			System.out.println("Ingrese una opcion: ");
 			System.out.println("------------------- ");
+			
 			System.out.println("1. Modificar Número Alquiler ");
 			System.out.println("2. Modificar Número Ofiina ");
 			System.out.println("3. Modificar Precio Oficina ");
@@ -94,7 +97,9 @@ public class Menú {
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
+
 			if (opcion >= 0 && opcion <= 3) {
+
 				return opcion;
 			}
 		}
@@ -113,6 +118,7 @@ public class Menú {
 				salir = true;
 				break;
 			case 1:
+
 				detalle.setNroAlquiler(InputTypes.readInt("Ingrese el nuevo Número Alquiler: ", scanner));
 				break;
 			case 2:
@@ -123,5 +129,5 @@ public class Menú {
 				break;
 			}
 		}
-	}
-}
+	
+	}}
