@@ -25,7 +25,7 @@ public class InquilinosIO {
 		}
 
 		/****************************
-		 * Agregar titulares *
+		 * Agregar Inquilinos *
 		 ****************************/
 
 		public void add() {
@@ -45,7 +45,7 @@ public class InquilinosIO {
 		}
 
 		/****************************
-		 * Eliminar categorías
+		 * Eliminar Inquilinos
 		 * 
 		 * @throws SQLException
 		 * 
@@ -61,7 +61,7 @@ public class InquilinosIO {
 		}
 
 		/****************************
-		 * Modificar categorías
+		 * Modificar Inquilinos
 		 * 
 		 * @throws SQLException *
 		 ****************************/
@@ -93,7 +93,8 @@ public class InquilinosIO {
 			System.out.println(inquilino);
 			Menú.menúModificar(scanner, inquilino);
 
-			sql = "update inquilino set CI = ?, nombre = ?, teléfono = ?, dirección = ?, NIT = ? where nroInquilino = ?";
+			sql = "update inquilino set CI = ?, nombre = ?, teléfono = ?, dirección = ?, NIT = ? "
+					+ "where nroInquilino = ?";
 
 			conexión.consulta(sql);
 			conexión.getSentencia().setInt(1, inquilino.getCI());
@@ -106,7 +107,7 @@ public class InquilinosIO {
 		}
 
 		/****************************
-		 * Listar titulares
+		 * Listar Inquilinos
 		 * 
 		 ****************************/
 
@@ -159,7 +160,7 @@ public class InquilinosIO {
 			int nroAlquiler;
 			String fecha;
 
-			String sql1 = "select * from oficina where nroInquilino = ?";
+			String sql1 = "select * from alquiler where nroInquilino = ?";
 			conexión.consulta(sql1);
 			conexión.getSentencia().setInt(1, nroInquilino);
 			resultSet = conexión.resultado();

@@ -25,7 +25,7 @@ public class DetallesIO {
 	}
 
 	/****************************
-	 * Agregar Expensas *
+	 * Agregar Detalles *
 	 ****************************/
 
 	public void add() {
@@ -40,26 +40,26 @@ public class DetallesIO {
 			conexión.modificacion();
 		} catch (SQLException e) {
 			System.out.println(e.getSQLState());
-			System.out.println("Algo falla");
+			System.out.println(e);
 		}
 	}
 
 	/****************************
-	 * Eliminar expensas
+	 * Eliminar Detalles
 	 * 
 	 * @throws SQLException*
 	 ****************************/
 
 	public void delete() throws SQLException {
-		int nroAlquiler = InputTypes.readInt("Número de alquiler del detalle a eliminar: ", scanner);
-		String sql = "delete " + "from detalle " + "where nroAlquiler = ?";
+		int nroDetalle = InputTypes.readInt("Número del detalle a eliminar: ", scanner);
+		String sql = "delete " + "from detalle " + "where nroDetalle = ?";
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, nroAlquiler);
+		conexión.getSentencia().setInt(1, nroDetalle);
 		conexión.modificacion();
 	}
 
 	/****************************
-	 * Modificar expensas
+	 * Modificar Detalles
 	 * 
 	 * @throws SQLException *
 	 ****************************/
@@ -67,17 +67,17 @@ public class DetallesIO {
 	public void update() throws NoExisteDetalle, SQLException {
 		ResultSet resultSet;
 		Detalle detalle;
-		int nroDetalle;
+		int nroAlquiler;
 		int nroOficina;
 		double precioOficina;
 		
-		int nroAlquiler = InputTypes.readInt("Número de Alquiler del Detalle: ", scanner);
-		String sql = "select * from detalle where nroAlquiler = ?";
+		int nroDetalle = InputTypes.readInt("Número del Detalle: ", scanner);
+		String sql = "select * from detalle where nroDetalle = ?";
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, nroAlquiler);
+		conexión.getSentencia().setInt(1, nroDetalle);
 		resultSet = conexión.resultado();
 		if (resultSet.next()) {
-			nroDetalle = resultSet.getInt("nroDetalle");
+			nroAlquiler = resultSet.getInt("nroAlquiler");
 			nroOficina = resultSet.getInt("nroOficina");
 			precioOficina = resultSet.getInt("precioOficina");
 			detalle = new Detalle(nroDetalle, nroAlquiler, nroOficina, precioOficina);
@@ -88,18 +88,19 @@ public class DetallesIO {
 		System.out.println(detalle);
 		Menú.menúModificar(scanner, detalle);
 
-		sql = "update detalle set nroOficina = ?, precioOficina = ? "
-				+ "where nroAlquiler = ?";
+		sql = "update detalle set nroAlquiler = ?, nroOficina = ?, precioOficina = ? "
+				+ "where nroDetalle = ?";
 
 		conexión.consulta(sql);
-		conexión.getSentencia().setInt(1, detalle.getNroOficina());
-		conexión.getSentencia().setDouble(2, detalle.getPrecioOficina());
-		conexión.getSentencia().setInt(3, detalle.getNroAlquiler());
+		conexión.getSentencia().setInt(1, detalle.getNroAlquiler());
+		conexión.getSentencia().setInt(2, detalle.getNroOficina());
+		conexión.getSentencia().setDouble(3, detalle.getPrecioOficina());
+		conexión.getSentencia().setInt(4, detalle.getNroDetalle());
 		conexión.modificacion();
 	}
 
 	/****************************
-	 * Listar oficinas
+	 * Listar Detalles
 	 * 
 	 ****************************/
 

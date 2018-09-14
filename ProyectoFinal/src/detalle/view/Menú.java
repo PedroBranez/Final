@@ -50,8 +50,8 @@ public class Menú {
 				salir = true;
 				break;
 			case 1:
-				detallesView.add();;
-
+				detallesView.add();
+				break;
 			case 2:
 				detallesView.list();
 				break;
@@ -90,7 +90,7 @@ public class Menú {
 			System.out.println("------------------- ");
 			
 			System.out.println("1. Modificar Número Alquiler ");
-			System.out.println("2. Modificar Número Ofiina ");
+			System.out.println("2. Modificar Número Oficina ");
 			System.out.println("3. Modificar Precio Oficina ");
 			System.out.println("0. Salir");
 			System.out.println();
@@ -118,7 +118,6 @@ public class Menú {
 				salir = true;
 				break;
 			case 1:
-
 				detalle.setNroAlquiler(InputTypes.readInt("Ingrese el nuevo Número Alquiler: ", scanner));
 				break;
 			case 2:

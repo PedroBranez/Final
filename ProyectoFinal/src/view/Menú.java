@@ -6,6 +6,7 @@ import java.util.Scanner;
 import control.Conexión;
 import detalle.view.DetallesIO;
 import expensa.view.ExpensasIO;
+import inquilino.view.InquilinosIO;
 import oficina.view.OficinasIO;
 import titular.view.TitularesIO;
 
@@ -24,6 +25,7 @@ public class Menú {
 			System.out.println("2. Oficina ");
 			System.out.println("3. Expensa ");
 			System.out.println("4. Detalle ");
+			System.out.println("5. Inquilino ");
 			System.out.println("0. Salir");
 			System.out.println();
 
@@ -50,6 +52,7 @@ public class Menú {
 		OficinasIO oficinasIO = new OficinasIO(conexión, scanner);
 		ExpensasIO expensasIO = new ExpensasIO(conexión, scanner);
 		DetallesIO detallesIO = new DetallesIO(conexión, scanner);
+		InquilinosIO inquilinosIO = new InquilinosIO(conexión, scanner);
 
 		while (!salir) {
 			switch (encabezado(scanner)) {
@@ -80,6 +83,13 @@ public class Menú {
 			case 4:
 				try {
 					detalle.view.Menú.menú(scanner, detallesIO);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 5:
+				try {
+					inquilino.view.Menú.menú(scanner, inquilinosIO);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
