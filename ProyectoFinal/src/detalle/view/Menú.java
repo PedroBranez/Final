@@ -9,6 +9,7 @@ import view.InputTypes;
 
 
 
+
 public class Menú {
 	/****************************
 	 * Encabezado del menú *
@@ -49,8 +50,8 @@ public class Menú {
 				salir = true;
 				break;
 			case 1:
-				detallesView.add();
-				break;
+				detallesView.add();;
+
 			case 2:
 				detallesView.list();
 				break;
@@ -87,14 +88,18 @@ public class Menú {
 		while (true) {
 			System.out.println("Ingrese una opcion: ");
 			System.out.println("------------------- ");
-			System.out.println("1. Modificar el numero de la oficina ");
-			System.out.println("2. Modificar precio de la Oficina ");
+			
+			System.out.println("1. Modificar Número Alquiler ");
+			System.out.println("2. Modificar Número Ofiina ");
+			System.out.println("3. Modificar Precio Oficina ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 2) {
+
+			if (opcion >= 0 && opcion <= 3) {
+
 				return opcion;
 			}
 		}
@@ -113,12 +118,16 @@ public class Menú {
 				salir = true;
 				break;
 			case 1:
-				detalle.setNroOficina(InputTypes.readInt("Ingrese el nuevo Numero de Oficina: ", scanner));
+
+				detalle.setNroAlquiler(InputTypes.readInt("Ingrese el nuevo Número Alquiler: ", scanner));
 				break;
 			case 2:
-				detalle.setPrecioOficina(InputTypes.readInt("Ingrese el nuevo Precio de la Oficina: ", scanner));
+				detalle.setNroOficina(InputTypes.readInt("Ingrese el nuevo Número Oficina: ", scanner));
+				break;
+			case 3:
+				detalle.setPrecioOficina(InputTypes.readDouble("Ingrese el nuevo Precio Oficina: ", scanner));
 				break;
 			}
 		}
-	}
-}
+	
+	}}

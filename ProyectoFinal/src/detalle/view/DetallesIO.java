@@ -11,7 +11,7 @@ import view.InputTypes;
 
 
 public class DetallesIO {
-
+	
 	private Conexión conexión;
 	private Scanner scanner;
 
@@ -66,8 +66,9 @@ public class DetallesIO {
 	public void update() throws NoExisteDetalle, SQLException {
 		ResultSet resultSet;
 		Detalle detalle;
+		int nroDetalle;
 		int nroOficina;
-		int precioOficina;
+		double precioOficina;
 		
 		int nroAlquiler = InputTypes.readInt("Número de Alquiler del Detalle: ", scanner);
 		String sql = "select * from detalle where nroAlquiler = ?";
@@ -75,9 +76,10 @@ public class DetallesIO {
 		conexión.getSentencia().setInt(1, nroAlquiler);
 		resultSet = conexión.resultado();
 		if (resultSet.next()) {
+			nroDetalle = resultSet.getInt("nroDetalle");
 			nroOficina = resultSet.getInt("nroOficina");
 			precioOficina = resultSet.getInt("precioOficina");
-			detalle = new Detalle(nroAlquiler, nroOficina, precioOficina);
+			detalle = new Detalle(nroDetalle, nroAlquiler, nroOficina, precioOficina);
 		} else {
 			throw new NoExisteDetalle();
 		}
@@ -90,7 +92,7 @@ public class DetallesIO {
 
 		conexión.consulta(sql);
 		conexión.getSentencia().setInt(1, detalle.getNroOficina());
-		conexión.getSentencia().setInt(2, detalle.getPrecioOficina());
+		conexión.getSentencia().setDouble(2, detalle.getPrecioOficina());
 		conexión.getSentencia().setInt(3, detalle.getNroAlquiler());
 		conexión.modificacion();
 	}
@@ -100,16 +102,16 @@ public class DetallesIO {
 	 * 
 	 ****************************/
 
+	
 	public void list() throws SQLException {
 		Detalle detalle;
-		String sql = "select * from expensa ";
+		String sql = "select * from detalle ";
 		conexión.consulta(sql);
 		ResultSet resultSet = conexión.resultado();
 		while (resultSet.next()) {
-			detalle = new Detalle(resultSet.getInt("nroAlquiler"), resultSet.getInt("nroOficina"), 
-					resultSet.getInt("precioOficina"));
+			detalle = new Detalle(resultSet.getInt("nroDetalle"), resultSet.getInt("nroAlquiler"), 
+					resultSet.getInt("nroOficina"), resultSet.getDouble("precioOficina"));
 			System.out.println(detalle);
 		}
 	}
-
 }
