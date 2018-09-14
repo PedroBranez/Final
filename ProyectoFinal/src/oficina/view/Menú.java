@@ -69,7 +69,7 @@ public class Menú {
 				break;
 			case 5:
 				try {
-					oficinasView.listOficinasDisponibles();
+					oficinasView.listOficinasEstado();
 				} catch (NoExisteOficina e) {
 					System.out.println("No existen Oficinas!");
 				}
@@ -127,10 +127,10 @@ public class Menú {
 				oficina.setNombre(InputTypes.readString("Ingrese el nuevo nombre: ", scanner));
 				break;
 			case 3:
-				oficina.setDimensión(InputTypes.readInt("Ingrese la nueva dimensión: ", scanner));
+				oficina.setDimensión(InputTypes.readDouble("Ingrese la nueva dimensión: ", scanner));
 				break;
 			case 4:
-				oficina.setNroPlanta(InputTypes.readInt("Ingrese el nuevo nroPlanta: ", scanner));
+				oficina.setNroPlanta(InputTypes.readInt("Ingrese el nuevo Número de Planta: ", scanner));
 				break;
 			case 5:
 				oficina.setEstado(InputTypes.readString("Ingrese el nuevo estado: ", scanner));

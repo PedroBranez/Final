@@ -123,13 +123,13 @@ public class OficinasIO {
 		}
 
 		/****************************
-		 * Listar Oficinas .
+		 * Listar Oficinas Estado
 		 * 
 		 * @throws NoExisteTitular
 		 * @throws SQLException *
 		 ****************************/
 
-		public void listOficinasDisponibles() throws NoExisteOficina, SQLException {
+		public void listOficinasEstado() throws NoExisteOficina, SQLException {
 			ResultSet resultSet;
 			Oficina oficina;
 			int nroOficina;
