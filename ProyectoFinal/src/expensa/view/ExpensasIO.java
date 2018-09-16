@@ -23,13 +23,12 @@ public class ExpensasIO {
 	}
 
 	/****************************
-	 * Agregar Expensas *
+	 * Agregar Expensa *
 	 ****************************/
 
 	public void add() {
 		Expensa expensa = ExpensaIO.ingresar(scanner);
-		String sql = "Insert into expensa (costoTeléfono, costoLuz, costoAgua) " + 
-		"values(?,?,?)";
+		String sql = "Insert into expensa (costoTeléfono, costoLuz, costoAgua) " + "values(?,?,?)";
 		try {
 			conexión.consulta(sql);
 			conexión.getSentencia().setDouble(1, expensa.getCostoTeléfono());
@@ -42,7 +41,7 @@ public class ExpensasIO {
 	}
 
 	/****************************
-	 * Eliminar expensas
+	 * Eliminar Expensas
 	 * 
 	 * @throws SQLException*
 	 ****************************/
@@ -56,8 +55,9 @@ public class ExpensasIO {
 	}
 
 	/****************************
-	 * Modificar expensas
+	 * Modificar Expensa
 	 * 
+	 * @throws NoExisteExpensa *
 	 * @throws SQLException *
 	 ****************************/
 
@@ -67,7 +67,7 @@ public class ExpensasIO {
 		Double costoTeléfono;
 		Double costoLuz;
 		Double costoAgua;
-		
+
 		int nroOficina = InputTypes.readInt("Número de Oficina de la Expensa: ", scanner);
 		String sql = "select * from expensa where nroOficina = ?";
 		conexión.consulta(sql);
@@ -85,8 +85,7 @@ public class ExpensasIO {
 		System.out.println(expensa);
 		Menú.menúModificar(scanner, expensa);
 
-		sql = "update expensa set costoTeléfono = ?, costoLuz = ?, costoAgua = ? "
-				+ "where nroOficina = ?";
+		sql = "update expensa set costoTeléfono = ?, costoLuz = ?, costoAgua = ? " + "where nroOficina = ?";
 
 		conexión.consulta(sql);
 		conexión.getSentencia().setDouble(1, expensa.getCostoTeléfono());
@@ -97,8 +96,9 @@ public class ExpensasIO {
 	}
 
 	/****************************
-	 * Listar oficinas
+	 * Listar Expensas
 	 * 
+	 * @throws SQLException *
 	 ****************************/
 
 	public void list() throws SQLException {
@@ -107,7 +107,7 @@ public class ExpensasIO {
 		conexión.consulta(sql);
 		ResultSet resultSet = conexión.resultado();
 		while (resultSet.next()) {
-			expensa = new Expensa(resultSet.getInt("nroOficina"), resultSet.getDouble("costoTeléfono"), 
+			expensa = new Expensa(resultSet.getInt("nroOficina"), resultSet.getDouble("costoTeléfono"),
 					resultSet.getDouble("costoLuz"), resultSet.getDouble("costoAgua"));
 			System.out.println(expensa);
 		}

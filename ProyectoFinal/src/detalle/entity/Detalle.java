@@ -55,8 +55,8 @@ public class Detalle {
 
 	@Override
 	public String toString() {
-		return "Detalle [nroDetalle=" + nroDetalle + ", nroAlquiler=" + nroAlquiler + ", nroOficina=" + nroOficina
-				+ ", precioOficina=" + precioOficina + "]";
+		return "Detalle [nroDetalle: " + nroDetalle + ", nroAlquiler: " + nroAlquiler + ", nroOficina: " + nroOficina
+				+ ", precioOficina: " + precioOficina + "]";
 	}
 	
 	

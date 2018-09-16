@@ -3,7 +3,6 @@ package inquilino.view;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import alquiler.entity.NoExisteAlquiler;
 import inquilino.entity.Inquilino;
 import inquilino.entity.NoExisteInquilino;
 import view.InputTypes;
@@ -74,9 +73,7 @@ public class Menú {
 				try {
 					inquilinosView.listAlquiler();
 				} catch (NoExisteInquilino e) {
-					System.out.println("No existe inquilino!");
-				} catch (NoExisteAlquiler e) {
-					System.out.println("No existen Alquileres!");
+					System.out.println("No existe Inquulino!");
 				}
 				break;
 			}

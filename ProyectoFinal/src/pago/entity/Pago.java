@@ -48,7 +48,7 @@ public class Pago {
 
 	@Override
 	public String toString() {
-		return "Pago [nroPago=" + nroPago + ", nroAlquiler=" + nroAlquiler + ", fechaPago=" + fechaPago + ", monto="
+		return "Pago [nroPago: " + nroPago + ", nroAlquiler: " + nroAlquiler + ", fechaPago: " + fechaPago + ", monto: "
 				+ monto + "]";
 	}
 	

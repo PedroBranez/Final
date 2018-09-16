@@ -25,7 +25,7 @@ public class DetallesIO {
 	}
 
 	/****************************
-	 * Agregar Detalles *
+	 * Agregar Detalle *
 	 ****************************/
 
 	public void add() {
@@ -45,7 +45,7 @@ public class DetallesIO {
 	}
 
 	/****************************
-	 * Eliminar Detalles
+	 * Eliminar Detalle
 	 * 
 	 * @throws SQLException*
 	 ****************************/
@@ -59,8 +59,9 @@ public class DetallesIO {
 	}
 
 	/****************************
-	 * Modificar Detalles
+	 * Modificar Detalle
 	 * 
+	 * @throws NoExisteDetalle *
 	 * @throws SQLException *
 	 ****************************/
 
@@ -102,6 +103,7 @@ public class DetallesIO {
 	/****************************
 	 * Listar Detalles
 	 * 
+	 * @throws SQLException
 	 ****************************/
 
 	

@@ -12,7 +12,7 @@ public class ExpensaIO {
 		double costoLuz = InputTypes.readDouble("Ingrese el costo de Luz", scanner);
 		double costoAgua = InputTypes.readDouble("Ingrese el costo de Agua", scanner);
 		
-		return new Expensa(nroOficina, costoTeléfono,costoLuz,costoAgua);
+		return new Expensa(nroOficina, costoTeléfono, costoLuz, costoAgua);
 
 	}
 

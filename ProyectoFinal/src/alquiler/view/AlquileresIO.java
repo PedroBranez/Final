@@ -13,6 +13,7 @@ import view.InputTypes;
 public class AlquileresIO {
 	private Conexión conexión;
 	private Scanner scanner;
+
 	/****************************
 	 * Constructor *
 	 ****************************/
@@ -56,6 +57,7 @@ public class AlquileresIO {
 	/****************************
 	 * Modificar Alquiler
 	 * 
+	 * @throws NoExisteAlquiler *
 	 * @throws SQLException *
 	 ****************************/
 
@@ -80,8 +82,7 @@ public class AlquileresIO {
 		System.out.println(alquiler);
 		Menú.menúModificar(scanner, alquiler);
 
-		sql = "update alquiler set nroInquilino = ?, fecha = ? "
-				+ " where nroAlquiler = ?";
+		sql = "update alquiler set nroInquilino = ?, fecha = ? " + " where nroAlquiler = ?";
 
 		conexión.consulta(sql);
 		conexión.getSentencia().setInt(1, alquiler.getNroInquilino());
@@ -93,6 +94,7 @@ public class AlquileresIO {
 	/****************************
 	 * Listar Pagos
 	 * 
+	 * @throws SQLException *
 	 ****************************/
 
 	public void list() throws SQLException {
@@ -110,7 +112,7 @@ public class AlquileresIO {
 	/****************************
 	 * Listar Pagos .
 	 * 
-	 * @throws NoExisteTitular
+	 * @throws NoExisteAlquiler *
 	 * @throws SQLException *
 	 ****************************/
 
@@ -149,8 +151,6 @@ public class AlquileresIO {
 			monto = resultSet.getDouble("monto");
 			pago = new Pago(nroPago, nroAlquiler, fechaPago, monto);
 			System.out.println(pago);
-		} // else {
-			// throw new NoExisteAlquiler();
-			// }
+		}
 	}
 }

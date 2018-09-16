@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import control.Conexión;
 import oficina.entity.Oficina;
-import titular.entity.NoExisteOficina;
+import oficina.entity.NoExisteOficina;
 import titular.entity.NoExisteTitular;
 import titular.entity.Titular;
 import view.InputTypes;
@@ -25,7 +25,7 @@ public class TitularesIO {
 	}
 
 	/****************************
-	 * Agregar titulares *
+	 * Agregar Titular *
 	 ****************************/
 
 	public void add() {
@@ -45,11 +45,9 @@ public class TitularesIO {
 	}
 
 	/****************************
-	 * Eliminar categorías
+	 * Eliminar Titular
 	 * 
-	 * @throws SQLException
-	 * 
-	 * @throws NoExisteTitular *
+	 * @throws SQLException *
 	 ****************************/
 
 	public void delete() throws SQLException {
@@ -61,8 +59,9 @@ public class TitularesIO {
 	}
 
 	/****************************
-	 * Modificar categorías
+	 * Modificar Titular
 	 * 
+	 * @throws NoExisteTitular *
 	 * @throws SQLException *
 	 ****************************/
 
@@ -106,8 +105,9 @@ public class TitularesIO {
 	}
 
 	/****************************
-	 * Listar titulares
+	 * Listar Titulares
 	 * 
+	 * @throws SQLException *
 	 ****************************/
 
 	public void list() throws SQLException {
@@ -124,7 +124,7 @@ public class TitularesIO {
 	}
 
 	/****************************
-	 * Listar Oficinas .
+	 * Listar Oficinas Titular
 	 * 
 	 * @throws NoExisteTitular
 	 * @throws SQLException *
@@ -174,9 +174,7 @@ public class TitularesIO {
 			estado = resultSet.getString("estado");
 			oficina = new Oficina(nroOficina, nroTitular, nombreO, dimensión, nroPlanta, estado);
 			System.out.println(oficina);
-		} //else {
-			//throw new NoExisteOficina();
-		//}
+		} 
 	}
 
 }

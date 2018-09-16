@@ -21,7 +21,7 @@ public class Menú {
 			System.out.println("2. Listar Oficinas ");
 			System.out.println("3. Eliminar Oficina ");
 			System.out.println("4. Modificar Oficina ");
-			System.out.println("5. Estado de Oficinas ");
+			System.out.println("5. Oficinas por Estado");
 			System.out.println("0. Salir");
 			System.out.println();
 

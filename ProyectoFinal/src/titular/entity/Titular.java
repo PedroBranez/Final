@@ -59,8 +59,8 @@ public class Titular {
 
 	@Override
 	public String toString() {
-		return "Titular [nroTitular=" + nroTitular + ", CI=" + CI + ", nombre=" + nombre + ", teléfono=" + teléfono
-				+ ", dirección=" + dirección + ", NIT=" + NIT + "]";
+		return "Titular [nroTitular: " + nroTitular + ", CI: " + CI + ", nombre: " + nombre + ", teléfono: " + teléfono
+				+ ", dirección: " + dirección + ", NIT: " + NIT + "]";
 	}
 	
 }

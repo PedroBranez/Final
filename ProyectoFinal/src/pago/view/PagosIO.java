@@ -57,6 +57,7 @@ public class PagosIO {
 	/****************************
 	 * Modificar Pagos
 	 * 
+	 * @throws NoExistePago *
 	 * @throws SQLException *
 	 ****************************/
 
@@ -97,6 +98,7 @@ public class PagosIO {
 	/****************************
 	 * Listar Pagos
 	 * 
+	 * @throws SQLException *
 	 ****************************/
 
 	public void list() throws SQLException {

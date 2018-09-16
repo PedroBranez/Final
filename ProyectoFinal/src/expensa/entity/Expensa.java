@@ -38,8 +38,8 @@ public class Expensa {
 	}
 	@Override
 	public String toString() {
-		return "Expensa [nroOficina=" + nroOficina + ", costoTelefono=" + costoTeléfono + ", costoLuz=" + costoLuz
-				+ ", costoAgua=" + costoAgua + "]";
+		return "Expensa [nroOficina: " + nroOficina + ", costoTelefono: " + costoTeléfono + ", costoLuz: " + costoLuz
+				+ ", costoAgua: " + costoAgua + "]";
 	}
 	
 }

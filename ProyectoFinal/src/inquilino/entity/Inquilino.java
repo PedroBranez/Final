@@ -59,8 +59,8 @@ public class Inquilino {
 
 	@Override
 	public String toString() {
-		return "Inquilino [nroInquilino=" + nroInquilino + ", CI=" + CI + ", nombre=" + nombre + ", teléfono="
-				+ teléfono + ", dirección=" + dirección + ", NIT=" + NIT + "]";
+		return "Inquilino [nroInquilino: " + nroInquilino + ", CI: " + CI + ", nombre: " + nombre + ", teléfono: "
+				+ teléfono + ", dirección: " + dirección + ", NIT: " + NIT + "]";
 	}
 
 }

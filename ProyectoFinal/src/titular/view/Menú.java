@@ -3,7 +3,7 @@ package titular.view;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import titular.entity.NoExisteOficina;
+import oficina.entity.NoExisteOficina;
 import titular.entity.NoExisteTitular;
 import titular.entity.Titular;
 import view.InputTypes;

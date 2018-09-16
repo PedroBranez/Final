@@ -32,7 +32,7 @@ public class Alquiler {
 	}
 	@Override
 	public String toString() {
-		return "Alquiler [nroAlquiler=" + nroAlquiler + ", nroInquilino=" + nroInquilino + ", fecha=" + fecha + "]";
+		return "Alquiler [nroAlquiler: " + nroAlquiler + ", nroInquilino: " + nroInquilino + ", fecha: " + fecha + "]";
 	}
 	
 	
