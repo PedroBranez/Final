@@ -3,11 +3,13 @@ package view;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import alquiler.view.AlquileresIO;
 import control.Conexión;
 import detalle.view.DetallesIO;
 import expensa.view.ExpensasIO;
 import inquilino.view.InquilinosIO;
 import oficina.view.OficinasIO;
+import pago.view.PagosIO;
 import titular.view.TitularesIO;
 
 public class Menú {
@@ -26,12 +28,14 @@ public class Menú {
 			System.out.println("3. Expensa ");
 			System.out.println("4. Detalle ");
 			System.out.println("5. Inquilino ");
+			System.out.println("6. Pago ");
+			System.out.println("7. Alquiler ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 5) {
+			if (opcion >= 0 && opcion <= 7) {
 				return opcion;
 			}
 		}
@@ -53,6 +57,8 @@ public class Menú {
 		ExpensasIO expensasIO = new ExpensasIO(conexión, scanner);
 		DetallesIO detallesIO = new DetallesIO(conexión, scanner);
 		InquilinosIO inquilinosIO = new InquilinosIO(conexión, scanner);
+		PagosIO pagosIO = new PagosIO(conexión, scanner);
+		AlquileresIO alquileresIO = new AlquileresIO(conexión, scanner);
 
 		while (!salir) {
 			switch (encabezado(scanner)) {
@@ -90,6 +96,20 @@ public class Menú {
 			case 5:
 				try {
 					inquilino.view.Menú.menú(scanner, inquilinosIO);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 6:
+				try {
+					pago.view.Menú.menú(scanner, pagosIO);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 7:
+				try {
+					alquiler.view.Menú.menú(scanner, alquileresIO);
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

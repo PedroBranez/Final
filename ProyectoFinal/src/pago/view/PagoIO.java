@@ -11,7 +11,7 @@ public class PagoIO {
 		int nroPago = InputTypes.readInt("Ingrese el número de Pago", scanner);
 		int nroAlquiler = InputTypes.readInt("Ingrese el número de Alquiler", scanner);
 		String fechaPago = InputTypes.readString("Ingrese la fecha del pago", scanner);
-		int monto = InputTypes.readInt("Ingrese el monto", scanner);
+		double monto = InputTypes.readDouble("Ingrese el monto", scanner);
 		
 		return new Pago(nroPago, nroAlquiler, fechaPago, monto);
 	}
