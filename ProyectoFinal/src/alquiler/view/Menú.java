@@ -23,12 +23,13 @@ public class Menú {
 			System.out.println("3. Eliminar Alquiler ");
 			System.out.println("4. Modificar Alquiler ");
 			System.out.println("5. Pagos por Alquiler ");
+			System.out.println("6. Detalles por Alquiler ");
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 5) {
+			if (opcion >= 0 && opcion <= 6) {
 				return opcion;
 			}
 		}
@@ -71,6 +72,13 @@ public class Menú {
 			case 5:
 				try {
 					alquileresView.listPagos();
+				} catch (NoExisteAlquiler e) {
+					System.out.println("No existe alquiler!");
+				}
+				break;
+			case 6:
+				try {
+					alquileresView.listDetalles();
 				} catch (NoExisteAlquiler e) {
 					System.out.println("No existe alquiler!");
 				}

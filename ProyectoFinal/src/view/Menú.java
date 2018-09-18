@@ -21,7 +21,8 @@ public class Menú {
 		int opcion;
 
 		while (true) {
-			System.out.println("Ingrese una opcion: ");
+			System.out.println("Tome en cuenta las relaciones entre identidades para ingresar Datos");
+			System.out.println("\nIngrese una opcion: ");
 			System.out.println("------------------- ");
 			System.out.println("1. Titular");
 			System.out.println("2. Oficina ");

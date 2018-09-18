@@ -7,6 +7,7 @@ import java.util.Scanner;
 import alquiler.entity.Alquiler;
 import alquiler.entity.NoExisteAlquiler;
 import control.Conexión;
+import detalle.entity.Detalle;
 import pago.entity.Pago;
 import view.InputTypes;
 
@@ -152,5 +153,48 @@ public class AlquileresIO {
 			pago = new Pago(nroPago, nroAlquiler, fechaPago, monto);
 			System.out.println(pago);
 		}
+	}
+	/****************************
+	 * Listar Detalles .
+	 * 
+	 * @throws NoExisteAlquiler *
+	 * @throws SQLException *
+	 ****************************/
+
+	public void listDetalles() throws NoExisteAlquiler, SQLException {
+		ResultSet resultSet;
+		Alquiler alquiler;
+		int nroInquilino;
+		String fecha;
+		int nroAlquiler = InputTypes.readInt("Número de Alquiler: ", scanner);
+		String sql = "select * from alquiler where nroAlquiler = ?";
+		conexión.consulta(sql);
+		conexión.getSentencia().setInt(1, nroAlquiler);
+		resultSet = conexión.resultado();
+		if (resultSet.next()) {
+			nroInquilino = resultSet.getInt("nroInquilino");
+			fecha = resultSet.getString("fecha");
+			alquiler = new Alquiler(nroAlquiler, nroInquilino, fecha);
+		} else {
+			throw new NoExisteAlquiler();
+		}
+		System.out.println(alquiler);
+		
+		Detalle detalle;
+		int nroDetalle;
+		int nroOficina;
+		double precioOficina;
+	
+		String sql2 = "select * from detalle where nroAlquiler = ?";
+		conexión.consulta(sql2);
+		conexión.getSentencia().setInt(1, nroAlquiler);
+		resultSet = conexión.resultado();
+		while (resultSet.next()) {
+			nroDetalle = resultSet.getInt("nroDetalle");
+			nroOficina = resultSet.getInt("nroOficina");
+			precioOficina = resultSet.getDouble("precioOficina");
+			detalle = new Detalle(nroDetalle, nroAlquiler, nroOficina, precioOficina);
+			System.out.println(detalle);
+		} 
 	}
 }
